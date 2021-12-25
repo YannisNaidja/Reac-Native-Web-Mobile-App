@@ -1,12 +1,17 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import LogingPage from './src/app/login-page/LoginPage';
+import tw from 'tailwind-rn';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <View style={tw('p-3')}>
+        <LogingPage></LogingPage>
+      </View>
+    </NavigationContainer>
   );
 }
 

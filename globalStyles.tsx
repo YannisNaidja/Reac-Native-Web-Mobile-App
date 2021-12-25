@@ -1,3 +1,4 @@
+import { Row } from 'react-bootstrap';
 import { StyleSheet } from 'react-native';
 
 /** global styles sheet for the app
@@ -5,8 +6,10 @@ import { StyleSheet } from 'react-native';
  * adapt import path if needed
  */
 export default StyleSheet.create({
-  container: {
-    flex: 1
+  centeredContainer: {
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   welcome: {
     fontSize: 20
