@@ -12,9 +12,8 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={isMobile() ? 'SplashScreen' : 'Login'}>
+      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={isMobile() ? 'SplashScreen' : 'Login'}>
         <Stack.Screen
           name='SplashScreen'
           component={SplashScreen}

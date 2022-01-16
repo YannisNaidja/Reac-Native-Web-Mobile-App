@@ -1,0 +1,1 @@
+export const primaryPurple = 'rgb(167 139 250)';
