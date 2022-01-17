@@ -6,6 +6,7 @@ import tw from 'tailwind-rn';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { isMobile } from './src/app/utils/IsMobile.utils';
 import SplashScreen from './src/app/splash-screen/SplashScreen';
+import RegisterScreen from './src/register-screen/RegisterScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -21,6 +22,10 @@ export default function App() {
         <Stack.Screen
           name='Login'
           component={LogingPage}
+        />
+        <Stack.Screen
+          name='RegisterScreen'
+          component={RegisterScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
