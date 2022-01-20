@@ -1,24 +1,37 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import LogingPage from './src/app/login-page/LoginPage';
+import LogingPage from './src/app/common/login-page/LoginPage';
 import tw from 'tailwind-rn';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { isMobile } from './src/app/utils/IsMobile.utils';
-import SplashScreen from './src/app/splash-screen/SplashScreen';
-import RegisterScreen from './src/app/register-screen/RegisterScreen';
-
+import SplashScreen from './src/app/mobile/splash-screen/SplashScreen';
+import RegisterScreen from './src/app/common/register-screen/RegisterScreen';
+import 'react-native-gesture-handler';
+import WebNavigation from './src/app/web/web-navigation/WebNavigation';
 
 const Stack = createNativeStackNavigator();
 
+
+
 export default function App() {
+  const linking = {
+    prefixes: [],
+    config: {
+      screens: {
+        Login: "login",
+        RegisterScreen: "register",
+        WebNavigation: 'user'
+      }
+    }
+  };
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={isMobile() ? 'SplashScreen' : 'Login'}>
+    <NavigationContainer linking={linking}>
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={isMobile() ? 'SplashScreen' : 'Login'}>
         <Stack.Screen
           name='SplashScreen'
           component={SplashScreen}
-        />  
+        />
         <Stack.Screen
           name='Login'
           component={LogingPage}
@@ -26,6 +39,10 @@ export default function App() {
         <Stack.Screen
           name='RegisterScreen'
           component={RegisterScreen}
+        />
+        <Stack.Screen
+          name='WebNavigation'
+          component={WebNavigation}
         />
       </Stack.Navigator>
     </NavigationContainer>
