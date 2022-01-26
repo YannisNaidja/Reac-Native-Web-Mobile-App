@@ -50,7 +50,7 @@ const LogingPage = ({ navigation }) => {
                             style={[globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
                             placeholder="Email or Username"></TextInput>
                     </View>
-                    
+
                     <View style={globalStyles.inputWithIconContainer}>
                         <Icon style={tw('mr-1')}
                             type='font-awesome'
@@ -71,7 +71,7 @@ const LogingPage = ({ navigation }) => {
                     {error ? <Text style={{ color: 'red' }}>Login failed. Please enter a valid username and email.</Text> : null}
                     <Text
                         style={{ color: primaryPurple, textDecorationLine: 'underline' }}
-                        onPress={() => navigation.navigate('RegisterScreen')}>
+                        onPress={() => { navigation.navigate('RegisterScreen'); setError(false); }}>
                         New Here ? Register
                     </Text>
                 </Card>
