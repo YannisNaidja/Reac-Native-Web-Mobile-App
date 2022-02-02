@@ -6,7 +6,8 @@ import Profile from '../../common/profile/Profile';
 import Courses from '../../common/courses/Courses';
 import Settings from '../../common/settings/Settings';
 import Logout from '../../common/logout/Logout';
-
+import { View, Text } from 'react-native';
+import React from 'react';
 const Tab = createBottomTabNavigator();
 
 const MobileNavigation = () => {

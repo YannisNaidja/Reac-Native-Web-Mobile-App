@@ -1,13 +1,12 @@
 import { View, Text } from 'react-native';
-
 import tw from 'tailwind-rn';
 import { StyleSheet, TextInput, TouchableOpacity, } from "react-native";
 import { isMobile } from '../../utils/IsMobile.utils';
-import { useState } from 'react';
 import { primaryPurple } from '../../utils/constants.utils';
 import { Card } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import globalStyles from '../../utils/style'
+import React from 'react';
 import { Icon } from 'react-native-elements';
 const Profile = () => {
     return (

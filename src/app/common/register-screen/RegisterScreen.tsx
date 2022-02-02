@@ -3,7 +3,7 @@
 import { View, Text } from 'react-native';
 import tw from 'tailwind-rn';
 import { TextInput, TouchableOpacity } from "react-native";
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Card } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import { isMobile } from '../../utils/IsMobile.utils';
@@ -88,7 +88,7 @@ const RegisterScreen = ({ navigation }) => {
                     
                     <TouchableOpacity
                         style={[tw('mt-3 rounded-md items-center pt-2 pb-2 pr-10 pl-10 bg-purple-400'), isMobile() ? tw('mb-1') : tw('mb-3')]}
-                        onPress={() => { navigation.navigate('WebNavigation') }}>
+                        onPress={() => { navigation.navigate( isMobile() ? 'MobileNavigation' :'WebNavigation') }}>
                         <Text>Register</Text>
                     </TouchableOpacity>
                 </Card>

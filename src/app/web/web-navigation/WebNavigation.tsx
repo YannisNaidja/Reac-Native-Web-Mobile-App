@@ -7,6 +7,7 @@ import Profile from '../../common/profile/Profile';
 import Courses from '../../common/courses/Courses';
 import Settings from '../../common/settings/Settings';
 import Logout from '../../common/logout/Logout';
+import React, { useState } from 'react';
 
 const Drawer = createDrawerNavigator();
 
