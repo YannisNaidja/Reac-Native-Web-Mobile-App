@@ -1,24 +1,23 @@
-
-import tw from 'tailwind-rn';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { primaryPurple } from '../../utils/constants.utils';
+import tw from 'tailwind-rn';
 import { Icon } from 'react-native-elements';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import Profile from '../../common/profile/Profile';
 import Courses from '../../common/courses/Courses';
 import Settings from '../../common/settings/Settings';
 import Logout from '../../common/logout/Logout';
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
-const WebNavigation = () => {
+const MobileNavigation = () => {
     return (
-        <Drawer.Navigator screenOptions={{
-            drawerLabelStyle: { color: primaryPurple }, drawerInactiveTintColor: 'white', drawerActiveBackgroundColor: 'lightgrey',
-            headerShown: false, drawerType: 'permanent', drawerStyle: { width: '80' }
+        <Tab.Navigator screenOptions={{
+            tabBarLabelPosition: 'below-icon',
+            tabBarLabelStyle: { color: primaryPurple }, tabBarInactiveTintColor: 'white', tabBarActiveBackgroundColor: 'lightgrey',
+            headerShown: false,
         }}>
-            <Drawer.Screen options={{
-                unmountOnBlur: true,
-                drawerIcon: ({ focused, size }) => (
+            <Tab.Screen options={{
+                tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
                         name='profile'
@@ -27,9 +26,8 @@ const WebNavigation = () => {
                     />
                 )
             }} name="Profile" component={Profile} />
-            <Drawer.Screen  options={{
-                unmountOnBlur: true,
-                drawerIcon: ({ focused, size }) => (
+            <Tab.Screen options={{
+                tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
                         name='book'
@@ -38,9 +36,8 @@ const WebNavigation = () => {
                     />
                 )
             }} name="Courses" component={Courses} />
-            <Drawer.Screen  options={{
-                unmountOnBlur: true,
-                drawerIcon: ({ focused, size }) => (
+            <Tab.Screen options={{
+                tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
                         name='setting'
@@ -49,9 +46,8 @@ const WebNavigation = () => {
                     />
                 )
             }} name="Settings" component={Settings} />
-            <Drawer.Screen  options={{
-                unmountOnBlur: true,
-                drawerIcon: ({ focused, size }) => (
+            <Tab.Screen options={{
+                tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
                         name='logout'
@@ -60,8 +56,8 @@ const WebNavigation = () => {
                     />
                 )
             }} name="Logout" component={Logout} />
-        </Drawer.Navigator>
-    )
+        </Tab.Navigator>
+    );
 }
 
-export default WebNavigation;
+export default MobileNavigation;

@@ -9,6 +9,7 @@ import SplashScreen from './src/app/mobile/splash-screen/SplashScreen';
 import RegisterScreen from './src/app/common/register-screen/RegisterScreen';
 import 'react-native-gesture-handler';
 import WebNavigation from './src/app/web/web-navigation/WebNavigation';
+import MobileNavigation from './src/app/mobile/mobile-navigation/MobileNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,10 +41,16 @@ export default function App() {
           name='RegisterScreen'
           component={RegisterScreen}
         />
-        <Stack.Screen
-          name='WebNavigation'
-          component={WebNavigation}
-        />
+        {isMobile() ?
+          <Stack.Screen
+            name='MobileNavigation'
+            component={MobileNavigation}
+          /> : <Stack.Screen
+            name='WebNavigation'
+            component={WebNavigation}
+          />
+        }
+
       </Stack.Navigator>
     </NavigationContainer>
   )
