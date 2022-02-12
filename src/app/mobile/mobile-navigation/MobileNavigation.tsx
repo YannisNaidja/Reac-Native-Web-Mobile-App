@@ -8,16 +8,26 @@ import Settings from '../../common/settings/Settings';
 import Logout from '../../common/logout/Logout';
 import { View, Text } from 'react-native';
 import React from 'react';
+import { color } from 'react-native-reanimated';
+import { useTheme } from '../../utils/ThemeProvider';
 const Tab = createBottomTabNavigator();
 
 const MobileNavigation = () => {
+
+    const { colors } = useTheme();
+
     return (
-        <Tab.Navigator screenOptions={{
-            tabBarLabelPosition: 'below-icon',
-            tabBarLabelStyle: { color: primaryPurple }, tabBarInactiveTintColor: 'white', tabBarActiveBackgroundColor: 'lightgrey',
-            headerShown: false,
-        }}>
+        <Tab.Navigator
+            sceneContainerStyle={{backgroundColor: colors.background}}
+            screenOptions={{
+                tabBarLabelPosition: 'below-icon',
+                tabBarLabelStyle: { color: primaryPurple }, tabBarInactiveTintColor: 'white', tabBarActiveBackgroundColor: 'lightgrey',
+                headerShown: false,
+
+            }}
+        >
             <Tab.Screen options={{
+                unmountOnBlur: true,
                 tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
@@ -28,6 +38,7 @@ const MobileNavigation = () => {
                 )
             }} name="Profile" component={Profile} />
             <Tab.Screen options={{
+                unmountOnBlur: true,
                 tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
@@ -38,6 +49,7 @@ const MobileNavigation = () => {
                 )
             }} name="Courses" component={Courses} />
             <Tab.Screen options={{
+                unmountOnBlur: true,
                 tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'
@@ -48,6 +60,7 @@ const MobileNavigation = () => {
                 )
             }} name="Settings" component={Settings} />
             <Tab.Screen options={{
+                unmountOnBlur: true,
                 tabBarIcon: ({ focused, size }) => (
                     <Icon style={tw('mr-1')}
                         type='antdesign'

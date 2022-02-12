@@ -8,12 +8,17 @@ import Courses from '../../common/courses/Courses';
 import Settings from '../../common/settings/Settings';
 import Logout from '../../common/logout/Logout';
 import React, { useState } from 'react';
+import { useTheme } from '../../utils/ThemeProvider';
 
 const Drawer = createDrawerNavigator();
 
 const WebNavigation = () => {
+
+    const { colors } = useTheme();
+
     return (
         <Drawer.Navigator screenOptions={{
+            sceneContainerStyle:  {backgroundColor: colors.background},
             drawerLabelStyle: { color: primaryPurple }, drawerInactiveTintColor: 'white', drawerActiveBackgroundColor: 'lightgrey',
             headerShown: false, drawerType: 'permanent', drawerStyle: { width: '80' }
         }}>
