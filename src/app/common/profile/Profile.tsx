@@ -8,11 +8,21 @@ import * as Animatable from 'react-native-animatable';
 import globalStyles from '../../utils/style'
 import React from 'react';
 import { Icon } from 'react-native-elements';
+import { useTheme } from '../../utils/ThemeProvider';
 const Profile = () => {
+    
+    const { colors, setScheme, isDark } = useTheme();
+    const containerStyle = {
+        backgroundColor: colors.background,
+        borderRadius: 5,
+    };
+    const textStyle = {
+        color: isDark ? primaryPurple : 'black'
+    }
     return (
         <Animatable.View duration={2000} animation="bounceInLeft">
-            <View style={tw('mt-3 pt-3 items-center')}>
-                <Card containerStyle={isMobile() ? tw('w-4/6') : tw('w-1/6')}>
+            <View style={[containerStyle,tw('mt-3 pt-3 items-center')]}>
+                <Card containerStyle={[containerStyle,isMobile() ? tw('w-4/6') : tw('w-1/6')]}>
                     <Card.Title style={{ color: primaryPurple }}>User Informations</Card.Title>
                     <View style={globalStyles.inputWithIconContainer}>
                         <Icon style={tw('mr-1')}
@@ -22,7 +32,7 @@ const Profile = () => {
                             color={primaryPurple}
                         />
                         <Text
-                            style={[globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
+                            style={[textStyle,globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
                         >Name: User</Text>
                     </View>
 
@@ -34,7 +44,7 @@ const Profile = () => {
                             color={primaryPurple}
                         />
                         <Text
-                            style={[globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
+                            style={[textStyle,globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
                         >Email: user@mail.com</Text>
                     </View>
 
@@ -46,7 +56,7 @@ const Profile = () => {
                             color={primaryPurple}
                         />
                         <Text
-                            style={[globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
+                            style={[textStyle,globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
                         >User Type: Student</Text>
                     </View>
 
@@ -58,7 +68,7 @@ const Profile = () => {
                             color={primaryPurple}
                         />
                         <Text
-                            style={[globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
+                            style={[textStyle,globalStyles.inputTextStyle, tw('mt-3'), isMobile() ? tw('mb-1') : [tw('mb-3'), { outlineOffset: '6px', outlineColor: 'white' }]]}
                         >Password: *****</Text>
                     </View>
 

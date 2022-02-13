@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { isMobile } from './IsMobile.utils';
+import { useTheme } from './ThemeProvider';
+
 
 export default StyleSheet.create({
     inputTextStyle: {
@@ -18,3 +20,4 @@ export default StyleSheet.create({
         alignItems: isMobile() ? 'baseline' : 'center',
     }
 });
+

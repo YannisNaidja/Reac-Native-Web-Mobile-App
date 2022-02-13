@@ -10,11 +10,13 @@ import React from 'react';
 import { Icon } from 'react-native-elements';
 import { useTheme } from '../../utils/ThemeProvider';
 import { Switch } from 'react-native';
+
+
 const Settings = (props) => {
 
     const { children } = props;
 
-    const { colors, setScheme, isDark } = useTheme();
+        const { colors, setScheme, isDark } = useTheme();
 
 
 
@@ -28,12 +30,8 @@ const Settings = (props) => {
     }
 
     const containerStyle = {
-        /* 
-        * the colors.background value will change dynamicly with
-        * so if we wanna change its value we can go directly to the pallet
-        * this will make super easy to change and maintain mid or end project
-        */
         backgroundColor: colors.background,
+        borderRadius: 5
     };
 
 
@@ -41,11 +39,11 @@ const Settings = (props) => {
         <Animatable.View duration={2000} animation="bounceInLeft">
             <View style={[containerStyle, tw('mt-3 pt-3 items-center')]}>
                 <StatusBar animated barStyle={isDark ? "light-content" : "dark-content"} />
-                <Card containerStyle={isMobile() ? tw('w-4/6') : tw('w-1/6')}>
+                <Card containerStyle={[containerStyle,isMobile() ? tw('w-4/6') : tw('w-1/6')]}>
                     <Card.Title style={{ color: primaryPurple }}>Settings</Card.Title>
                     <View style={globalStyles.inputWithIconContainer}>
                         <Text
-                            style={[tw('mr-1'), isMobile() ? tw('mb-1') : { outlineOffset: '6px', outlineColor: 'white' }]}
+                            style={[ isDark ? { color: primaryPurple } : {},tw('mr-1'), isMobile() ? tw('mb-1') : { outlineOffset: '6px', outlineColor: 'white' }]}
                         >Dark Mode</Text>
                         <Icon style={tw('mr-1')}
                             type='entypo'

@@ -18,6 +18,7 @@ const WebNavigation = () => {
 
     return (
         <Drawer.Navigator screenOptions={{
+            drawerContentStyle: {backgroundColor: colors.background},
             sceneContainerStyle:  {backgroundColor: colors.background},
             drawerLabelStyle: { color: primaryPurple }, drawerInactiveTintColor: 'white', drawerActiveBackgroundColor: 'lightgrey',
             headerShown: false, drawerType: 'permanent', drawerStyle: { width: '80' }

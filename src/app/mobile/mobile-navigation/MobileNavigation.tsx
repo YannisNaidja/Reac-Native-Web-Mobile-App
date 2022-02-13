@@ -20,6 +20,7 @@ const MobileNavigation = () => {
         <Tab.Navigator
             sceneContainerStyle={{backgroundColor: colors.background}}
             screenOptions={{
+                tabBarStyle: {backgroundColor: colors.background},
                 tabBarLabelPosition: 'below-icon',
                 tabBarLabelStyle: { color: primaryPurple }, tabBarInactiveTintColor: 'white', tabBarActiveBackgroundColor: 'lightgrey',
                 headerShown: false,
